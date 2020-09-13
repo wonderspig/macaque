@@ -18,7 +18,9 @@
 */
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
+    class Solution {
+public:
+      vector<vector<int>> threeSum(vector<int>& nums) {
         int size=nums.size();
         if(size<3){
             return {};
@@ -31,15 +33,15 @@ public:
             int middle=left+1;
             int val=nums[left]+nums[right];
             int tmp=val*(-1);;
-            while(middle<right-1){
+            while(middle<=right-1){
                 vector<int> item;
-                if(nums[middle++]==tmp){
+                if(nums[middle]==tmp){
                     item.push_back(nums[left]);
                      item.push_back(nums[middle]);
                      item.push_back(nums[right]);
                       pos.push_back(item);
                 }
-                
+                middle++;
             }
             if(val>0){
                 right--;
@@ -49,4 +51,5 @@ public:
         }
        return pos;
     }
+};
 };
