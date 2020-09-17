@@ -14,8 +14,8 @@
   思路:
     一般性的dp思路
   效果:
-    执行用时：16 ms, 在所有 Go 提交中击败了7.82%的用户
-    内存消耗：5.9 MB, 在所有 Go 提交中击败了5.07%的用户
+   执行用时：8 ms, 在所有 Go 提交中击败了90.59%的用户
+   内存消耗：4.3 MB, 在所有 Go 提交中击败了15.79%的用户
 */
 func minPathSum(grid [][]int) int {
     m, n := len(grid), len(grid[0])
@@ -35,7 +35,6 @@ func minPathSum(grid [][]int) int {
             dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
         }
     }
-    fmt.Println(dp)
     return dp[m-1][n-1]
 }
 func min(a, b int)int{
