@@ -1,46 +1,44 @@
-/**
-题目:
-  有两种特殊字符。第一种字符可以用一比特0来表示。第二种字符可以用两比特(10 或 11)来表示。
-  现给一个由若干比特组成的字符串。问最后一个字符是否必定为一个一比特字符。给定的字符串总是由0结束。
-  示例 1:
-  输入: 
-  bits = [1, 0, 0]
-  输出: True
-  解释: 
-  唯一的编码方式是一个两比特字符和一个一比特字符。所以最后一个字符是一比特字符。
-  示例 2:
-  输入: 
-  bits = [1, 1, 1, 0]
-  输出: False
-  解释: 
-  唯一的编码方式是两比特字符和两比特字符。所以最后一个字符不是一比特字符。
-思路:
-  1. 存在多种可能情况的探测,适合使用递归
-  2. 当然可以通过观察 发现其内在规律:从后向前 从倒数第二位置 连续1个数的奇偶性来判断
-  3.直接计算统计吧
-效果:
-  执行用时：4 ms, 在所有 Go 提交中击败了88.04%的用户
-  内存消耗：2.8 MB, 在所有 Go 提交中击败了5.56%的用户
-*/
+#include<iostream>
+#include<vector>
 
+using namespace std;
 
-class Solution {
-public:
-    bool isOneBitCharacter(vector<int>& bits) {
-        int size=bits.size();
-        int i=0;
-        for(;i<size;i++){
-            if(bits[i]==1){
-                //表示此时需要跨两步
-                //如果说这两步刚好是最后的两步，此时直接返回fasle
-                if(i==size-2){
-                    return false;
-                }
-                i++;
-            }else{
-                //表示0，不做处理，继续往下做
-            }
-        }
-        return i==size;
+queue := make([]string, 0)
+	for i := 1; i <= 9; i++ {
+		queue = append(queue, strconv.Itoa(i))
+	}
+	// 位数减1 代表第一层是 [1,2,3,4,5,6,7,8,9]
+	n--
+	for len(queue) != 0 && n > 0{
+		// 获取 当前队列的长度
+		l := len(queue)
+		// 遍历当前层的数据
+		for j := 0; j < l; j++ {
+			v := queue[0]
+			queue = queue[1:]
+			fmt.Print(v, " ")
+			//  在其字符串后追加0-9的字符
+			for i := 0; i < 10; i++ {
+				// 10 11 12 13 14 15 16 17 18 19 20 21.....
+				// 100 ....
+				// 1000
+				queue = append(queue, v+strconv.Itoa(i))
+			}
+		}
+		//位数减一
+		n--
+	}
+void func(int n){
+  vector<int> datas;
+  for(int i=1;i<=9;i++){
+    datas.push_back(i);
+  }
+  n--;
+  while(n>0&&datas.size()>0){
+    int size=datas.size();
+    for(int i=0;i<size;i++){
+      
     }
-};
+  }
+
+}

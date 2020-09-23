@@ -31,7 +31,7 @@ public:
         }
         int minVal=prices[0];
         //这个实际上是找到前面的最小值，找到后面的最大值
-        for(int i=1;i<prices.size();i++){
+        for(int i=1;i<prices.size();i++){ti
             res=max(res,prices[i]-minVal);
             minVal=min(minVal,prices[i]);
         }
