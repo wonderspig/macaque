@@ -28,7 +28,6 @@ func longestConsecutive(nums []int) int {
             }
             res = max(res, matchLen)
         }
-        m[nums[i]]=true
     }
     return res
 }
